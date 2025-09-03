@@ -1,14 +1,37 @@
 "use client"
 import { Navbar } from '@/components/navbar'
 import { ChevronRight } from 'lucide-react'
-import Image from 'next/image'
 import React from 'react'
-import { motion, stagger } from "motion/react"
+import { easeOut, motion, } from "motion/react"
 
 
 const title = "The Simplest Way To Build On Blockchain"
+const sub = "An intuitive Chan-based infrastructure.For Projects That Need Speed And Trust At Scale."
 export const Hero = () => {
+
+    const parent = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                delayChildren: 1.9,
+                staggerChildren: 0.4,
+            },
+        },
+    };
+
+    const child = {
+        hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+        visible: {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            transition: { duration: 0.8, ease: easeOut },
+        },
+    };
+
     return (
+
         <div className='h-full w-full'>
             <img src="./gradnew.png" className='w-full h-full absolute inset-x-0 ' />
             <div className='relative'>
@@ -30,18 +53,35 @@ export const Hero = () => {
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 1.4 }}
                     className='text-md max-sm:text-xs text-neutral-400 font-normal max-w-sm pt-3 mx-auto text-center '>
-                    An intuitive Chan-based infrastructure.
-                    For Projects That Need Speed And Trust At Scale.
+                    {sub.split(" ").map((word, idx) => (<motion.span key={idx}
+                        initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
+                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 1.8 + 0.2 * idx }}
+                        className=' inline-block'>{word}&nbsp;</motion.span>
+
+                    ))}
                 </motion.p>
+
                 <motion.div
+                    variants={parent}
+                    initial="hidden"
+                    animate="visible"
+                    className='flex gap-4 justify-center mt-16'
+                >
+                    <motion.button
+                        variants={child}
+                        className='bg-gradient-to-b cursor-pointer hover:scale-[1.1] transition duration-200 from-[#CF94FF] to-[#6E12B8] py-2 px-6 rounded-md text-white font-normal shadow-button'
+                    >
+                        Get Started
+                    </motion.button>
 
-                    initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 1.2 }} className='flex gap-4 justify-center mt-16'>
-                    <button className='bg-gradient-to-b cursor-pointer hover:scale-[1.1] transition duration-200 from-[#CF94FF] to-[#6E12B8] py-2 px-6 rounded-md text-white font-normal  shadow-button'>Get Started</button>
-                    <button className=' flex gap-1 cursor-pointer hover:scale-[1.1] transition duration-200 border-neutral-600 text-white px-5 py-2 border rounded-md bg-white/5'>Learn More
-                        <ChevronRight /></button>
-
+                    <motion.button
+                        variants={child}
+                        className='flex gap-1 cursor-pointer hover:scale-[1.1] transition duration-200 border-neutral-600 text-white px-5 py-2 border rounded-md bg-white/5'
+                    >
+                        Learn More
+                        <ChevronRight />
+                    </motion.button>
                 </motion.div>
             </div>
         </div>
