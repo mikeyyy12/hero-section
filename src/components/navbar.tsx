@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { easeOut, motion } from "motion/react"
-import { CrossIcon, Hamburger, HamIcon, MenuIcon, X } from 'lucide-react';
+import { MenuIcon, X } from 'lucide-react';
 
 const navItems = ["Home", "Features", "About us", "FAQ", "Pricing"];
 export const Navbar = () => {
