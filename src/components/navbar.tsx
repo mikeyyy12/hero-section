@@ -73,9 +73,9 @@ export const Navbar = () => {
                 animate="visible"
                 className='hidden md:flex gap-4'>
                 <motion.button variants={child}
-                    className='hover:scale-[1.1] transition duration-200 cursor-pointer border-neutral-600 text-white px-6 py-2 border rounded-md bg-white/5'>Log in</motion.button>
+                    className='hover:scale-[1.1] transition duration-200 cursor-pointer border-neutral-700 h-8 text-white px-4  border rounded-md bg-white/5'>Log in</motion.button>
                 <motion.button variants={child}
-                    className='hover:scale-[1.1] transition duration-200 cursor-pointer bg-gradient-to-b from-[#CF94FF] to-[#6E12B8] py-2 px-6 rounded-md text-white font-semibold shadow-button '>Sign in</motion.button>
+                    className='hover:scale-[1.1] transition duration-200 cursor-pointer bg-gradient-to-b h-8 text-sm items-center justify-center from-[#CF94FF] to-[#6E12B8] px-4 py-1 rounded-md text-white font-normal shadow-button '>Sign in</motion.button>
             </motion.div>
             <div className='block md:hidden cursor-pointer relative'>
                 {isOpen ? (
@@ -98,8 +98,8 @@ export const Navbar = () => {
                         </p>
                     ))}
                     <div className='flex gap-4 mt-4'>
-                        <button className='border-neutral-600 text-white px-6 py-2 border rounded-md bg-white/5'>Log in</button>
-                        <button className='bg-gradient-to-b from-[#CF94FF] to-[#6E12B8] py-2 px-6 rounded-md text-white font-semibold shadow-button'>
+                        <button className='border-neutral-600 text-white px-6 py-1 border rounded-lg bg-white/5'>Log in</button>
+                        <button className='bg-gradient-to-b from-[#CF94FF] to-[#6E12B8] py-1 px-6 rounded-lg text-white font-semibold shadow-button'>
                             Sign in
                         </button>
                     </div>
